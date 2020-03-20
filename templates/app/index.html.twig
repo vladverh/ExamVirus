@@ -17,7 +17,7 @@
         </thead>
         <tbody>
         {% for country in countries %}
-            <tr>
+            <tr class=" alert alert-{{ country.healed > country.zombified ? 'success' : 'danger' }} ">
                 <td>{{ country.name }}</td>
                 <td>{{ country.contaminated }}</td>
                 <td>{{ country.healed }}</td>

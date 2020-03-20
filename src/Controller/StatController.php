@@ -39,7 +39,7 @@ class StatController extends AbstractController
             $entityManager->persist($stat);
             $entityManager->flush();
 
-            return $this->redirectToRoute('stat_index');
+            return $this->redirectToRoute('app_index');
         }
 
         return $this->render('stat/new.html.twig', [

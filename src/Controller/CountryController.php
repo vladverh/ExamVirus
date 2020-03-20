@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Country;
 use App\Form\CountryType;
 use App\Repository\CountryRepository;
+use App\Repository\StatRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -51,10 +52,11 @@ class CountryController extends AbstractController
     /**
      * @Route("/{id}", name="country_show", methods={"GET"})
      */
-    public function show(Country $country): Response
+    public function show(Country $country, StatRepository $statRepository): Response
     {
         return $this->render('country/show.html.twig', [
             'country' => $country,
+            'stats' => $statRepository->findBy([], ['statDate' => "DESC"]),
         ]);
     }
 

@@ -19,7 +19,7 @@
         </thead>
         <tbody>
         {% for stat in stats %}
-            <tr>
+            <tr class=" alert alert-{{ stat.healed > stat.zombified ? 'success' : 'danger' }} ">
                 <td>{{ stat.id }}</td>
                 <td>{{ stat.country.name }}</td>
                 <td>{{ stat.contaminated }}</td>

@@ -3,18 +3,29 @@
 {% block title %}Country{% endblock %}
 
 {% block body %}
-    <h1>Country</h1>
+    <h1>{{country.name}}</h1>
 
     <table class="table">
         <tbody>
+            
             <tr>
-                <th>Id</th>
-                <td>{{ country.id }}</td>
+                <th>id</th>
+                <th>Nombre de soigné</th>
+                <th>Nombre de zombifié</th>
+                <th>Nombre de contaminé</th>
+                <th>Date</th>
             </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ country.name }}</td>
-            </tr>
+
+            
+            {% for stat in country.stats %}
+                <tr class=" alert alert-{{ stat.healed > stat.zombified ? 'success' : 'danger' }} ">
+                    <td> {{ stat.id }}</td>
+                    <td> {{ stat.healed }} </td>
+                    <td> {{ stat.zombified }} </td>
+                    <td> {{ stat.contaminated}} </td>
+                    <td> {{ stat.statDate ? stat.statDate|date('Y-m-d') : '' }} </td>
+                </tr>
+            {% endfor %}
         </tbody>
     </table>
 
