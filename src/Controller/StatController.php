@@ -49,7 +49,7 @@ class StatController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="stat_show", methods={"GET"})
+     * @Route("/{id}", name="stat_show", methods={"GET"},  requirements={"stat"="\d+"})
      */
     public function show(Stat $stat): Response
     {
@@ -59,7 +59,7 @@ class StatController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="stat_edit", methods={"GET","POST"})
+     * @Route("/{id}/edit", name="stat_edit", methods={"GET","POST"},  requirements={"stat"="\d+"})
      */
     public function edit(Request $request, Stat $stat): Response
     {
