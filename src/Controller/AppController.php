@@ -17,7 +17,7 @@ class AppController extends AbstractController
     public function index(CountryRepository $countryRepository): Response
     {
         return $this->render('app/index.html.twig', [
-            'countries' => $countryRepository->findAll(),
+            'countries' => $countryRepository->findBy([], ['name' => "ASC"]),
         ]);
     }
 }

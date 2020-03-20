@@ -9,9 +9,10 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Contaminated</th>
-                <th>Healed</th>
-                <th>Zombified</th>
+                <th>Pays</th>
+                <th>Contaminé</th>
+                <th>Soigné</th>
+                <th>Zombifié</th>
                 <th>Stat_date</th>
                 <th>actions</th>
             </tr>
@@ -20,6 +21,7 @@
         {% for stat in stats %}
             <tr>
                 <td>{{ stat.id }}</td>
+                <td>{{ stat.country.name }}</td>
                 <td>{{ stat.contaminated }}</td>
                 <td>{{ stat.healed }}</td>
                 <td>{{ stat.zombified }}</td>

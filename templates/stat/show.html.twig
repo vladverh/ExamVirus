@@ -12,17 +12,22 @@
                 <td>{{ stat.id }}</td>
             </tr>
             <tr>
-                <th>Contaminated</th>
+                <th>Pays</th>
+                <td>{{ stat.country.name }}</td>
+            </tr>
+            <tr>
+                <th>Contaminé</th>
                 <td>{{ stat.contaminated }}</td>
             </tr>
             <tr>
-                <th>Healed</th>
+                <th>Soigné</th>
                 <td>{{ stat.healed }}</td>
             </tr>
             <tr>
-                <th>Zombified</th>
+                <th>Zombifié</th>
                 <td>{{ stat.zombified }}</td>
             </tr>
+
             <tr>
                 <th>Stat_date</th>
                 <td>{{ stat.statDate ? stat.statDate|date('Y-m-d') : '' }}</td>

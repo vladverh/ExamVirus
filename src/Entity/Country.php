@@ -49,7 +49,30 @@ class Country
 
         return $this;
     }
-
+    public function getContaminated(): ?int
+    {
+        $total=0;
+        foreach ($this->getStats() as $stat) {
+            $total += $stat->getContaminated();
+        }
+        return $total;
+    }
+    public function getHealed(): ?int
+    {
+        $total=0;
+        foreach ($this->getStats() as $stat) {
+            $total += $stat->getHealed();
+        }
+        return $total;
+    }
+    public function getZombified(): ?int
+    {
+        $total=0;
+        foreach ($this->getStats() as $stat) {
+            $total += $stat->getZombified();
+        }
+        return $total;
+    }
     /**
      * @return Collection|Stat[]
      */

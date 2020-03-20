@@ -8,16 +8,20 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>actions</th>
+                <th>Pays</th>
+                <th>Infecté</th>
+                <th>Sauvé</th>
+                <th>Zombifié</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for country in countries %}
             <tr>
-                <td>{{ country.id }}</td>
                 <td>{{ country.name }}</td>
+                <td>{{ country.contaminated }}</td>
+                <td>{{ country.healed }}</td>
+                <td>{{ country.zombified }}</td>
                 <td>
                     <a href="{{ path('country_show', {'id': country.id}) }}">show</a>
                     <a href="{{ path('country_edit', {'id': country.id}) }}">edit</a>
