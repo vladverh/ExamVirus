@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Country;
-use App\Form\Country1Type;
+use App\Form\CountryType;
 use App\Repository\CountryRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -31,7 +31,7 @@ class CountryController extends AbstractController
     public function new(Request $request): Response
     {
         $country = new Country();
-        $form = $this->createForm(Country1Type::class, $country);
+        $form = $this->createForm(CountryType::class, $country);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -63,7 +63,7 @@ class CountryController extends AbstractController
      */
     public function edit(Request $request, Country $country): Response
     {
-        $form = $this->createForm(Country1Type::class, $country);
+        $form = $this->createForm(CountryType::class, $country);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
