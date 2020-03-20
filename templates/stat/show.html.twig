@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Stat{% endblock %}
+
+{% block body %}
+    <h1>Stat</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ stat.id }}</td>
+            </tr>
+            <tr>
+                <th>Contaminated</th>
+                <td>{{ stat.contaminated }}</td>
+            </tr>
+            <tr>
+                <th>Healed</th>
+                <td>{{ stat.healed }}</td>
+            </tr>
+            <tr>
+                <th>Zombified</th>
+                <td>{{ stat.zombified }}</td>
+            </tr>
+            <tr>
+                <th>Stat_date</th>
+                <td>{{ stat.statDate ? stat.statDate|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('stat_index') }}">back to list</a>
+
+    <a href="{{ path('stat_edit', {'id': stat.id}) }}">edit</a>
+
+    {{ include('stat/_delete_form.html.twig') }}
+{% endblock %}

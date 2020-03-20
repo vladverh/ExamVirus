@@ -1,20 +1,41 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello StatController!{% endblock %}
+{% block title %}Stat index{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <h1>Stat index</h1>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Contaminated</th>
+                <th>Healed</th>
+                <th>Zombified</th>
+                <th>Stat_date</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for stat in stats %}
+            <tr>
+                <td>{{ stat.id }}</td>
+                <td>{{ stat.contaminated }}</td>
+                <td>{{ stat.healed }}</td>
+                <td>{{ stat.zombified }}</td>
+                <td>{{ stat.statDate ? stat.statDate|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('stat_show', {'id': stat.id}) }}">show</a>
+                    <a href="{{ path('stat_edit', {'id': stat.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/Users/hhhh/ExamVirus/src/Controller/StatController.php'|file_link(0) }}">src/Controller/StatController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/Users/hhhh/ExamVirus/templates/stat/index.html.twig'|file_link(0) }}">templates/stat/index.html.twig</a></code></li>
-    </ul>
-</div>
+    <a href="{{ path('stat_new') }}">Create new</a>
 {% endblock %}
