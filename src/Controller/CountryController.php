@@ -56,7 +56,7 @@ class CountryController extends AbstractController
     {
         return $this->render('country/show.html.twig', [
             'country' => $country,
-            'stats' => $statRepository->findBy([], ['statDate' => "DESC"]),
+            'stats' => $statRepository->findBy(['country' => $country->getId()], ['stat_date' => "DESC"]),
         ]);
     }
 
